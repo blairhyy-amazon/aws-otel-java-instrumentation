@@ -599,7 +599,7 @@ final class AwsMetricAttributeGenerator implements MetricAttributeGenerator {
       }
     } else {
       for (AttributeKey<String> attributeKey : ARN_ATTRIBUTES) {
-        if (span.getAttributes().get(attributeKey) != null) {
+        if (isKeyPresent(span, attributeKey)) {
           String arn = span.getAttributes().get(attributeKey);
           remoteAccountId = arn.split(":")[4];
           remoteRegion = arn.split(":")[3];
