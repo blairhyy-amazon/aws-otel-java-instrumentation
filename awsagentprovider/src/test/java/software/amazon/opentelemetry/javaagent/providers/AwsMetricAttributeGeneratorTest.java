@@ -966,7 +966,7 @@ class AwsMetricAttributeGeneratorTest {
     when(spanDataMock.getKind()).thenReturn(SpanKind.CLIENT);
     Attributes actualAttributes =
         GENERATOR.generateMetricAttributeMapFromSpan(spanDataMock, resource).get(DEPENDENCY_METRIC);
-    assertThat(actualAttributes.get(AWS_REMOTE_RESOURCE_ACCESS_KEY)).isEqualTo(accessKey);
+    assertThat(actualAttributes.get(AWS_REMOTE_RESOURCE_ACCESS_KEY)).isNull();
     assertThat(actualAttributes.get(AWS_REMOTE_RESOURCE_ACCOUNT_ID)).isEqualTo(MOCK_ACCOUNT_ID);
     assertThat(actualAttributes.get(AWS_REMOTE_RESOURCE_REGION))
         .isEqualTo(MOCK_REGION); // Use region from resource ARN instead of STS

@@ -612,6 +612,7 @@ final class AwsMetricAttributeGenerator implements MetricAttributeGenerator {
         && !remoteRegion.equals(UNKNOWN_REMOTE_REGION)) {
       builder.put(AWS_REMOTE_RESOURCE_ACCOUNT_ID, remoteAccountId);
       builder.put(AWS_REMOTE_RESOURCE_REGION, remoteRegion);
+      builder.remove(AWS_REMOTE_RESOURCE_ACCESS_KEY);
     }
   }
 
